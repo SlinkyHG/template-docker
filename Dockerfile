@@ -23,5 +23,8 @@ VOLUME /var/www
 # Cf. https://w3blog.fr/2017/01/31/docker-health-check/
 HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
 
+#Définir les varaibles d'environnement par défaut si non précisées pour le setup du conteneur/fonctionnement, optionnel.
+ENV monFlag=blablabla{qsdqsgsdgkmlfmlfq}
+
 # Soit vous démarrez l'appli directement, soit vous éxécutez un script qui configure votre appli au démarrage
 ENTRYPOINT ["/entrypoint.sh"]
