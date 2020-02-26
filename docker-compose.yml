@@ -1,0 +1,19 @@
+version: "3.6"
+  services:
+    monChall:
+      build: 
+        context: ./
+        dockerfile: Dockerfile.monChall
+        
+      # Syntax pour les volumes: mon/Path/Sur/Mon/Pc:mon/Path/Sur/Mon/Conteneur
+      # Ne sera monté qu'après le build
+      volumes:
+        - ./datas/monChall:/...
+      
+      # Ouvrir les ports: pas possible d'ouvrir deux fois le port 8080 de mon pc .. faites attention à choisir des ports différents en sortie
+      ports:
+        - 8080:80 # J'ouvre le port 8080 de ma machine qui map vers le port 80 de mon conteneur
+        
+      environment:
+        - "MON_FLAG=aaaaaa{bbbbbb}" #Exemple
+        
