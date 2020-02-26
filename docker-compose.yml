@@ -1,3 +1,5 @@
+# Fichier Yaml: indentation avec 2 espaces à chaque fois, pas de tabulation. "docker-compose config" pour vérifier la syntax du fichier
+
 version: "3.6"
   services:
     monChall:
