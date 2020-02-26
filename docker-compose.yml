@@ -1,5 +1,5 @@
 # Fichier Yaml: indentation avec 2 espaces à chaque fois, pas de tabulation. "docker-compose config" pour vérifier la syntax du fichier
-
+# Pour les services liés à une BDD, un conteneur base de données par challenge. vous pouvez déclarer un service mysql-monChall et utiliser l'adresse mysql-monChall dans un autre conteneur pour accèder à la bdd.
 version: "3.6"
   services:
     monChall:
@@ -13,6 +13,8 @@ version: "3.6"
         - ./datas/monChall:/...
       
       # Ouvrir les ports: pas possible d'ouvrir deux fois le port 8080 de mon pc .. faites attention à choisir des ports différents en sortie
+      # Pour ouvrir un port plusieurs fois mais juste pour la stack : exemple mon site à besoin d'une bdd. Utiliser expose: On peux ouvrir le port autant de fois qu'on veux.
+      # Cela permet d'accèder au serveur uniquement via le nom du service dans la stack mysql-monChall:3306 par exemple
       ports:
         - 8080:80 # J'ouvre le port 8080 de ma machine qui map vers le port 80 de mon conteneur
         
